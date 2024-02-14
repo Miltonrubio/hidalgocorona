@@ -14,7 +14,6 @@ $(document).on("submit", '#form_login', function (e) {
         
         success: function (response) {
             var response = response.trim();
-            console.log("resultadoooodd:" + response);
             switch (response) {
 
                 case 'SUPERADMIN':
@@ -47,8 +46,12 @@ $(document).on("submit", '#form_login', function (e) {
                     break;
             }
         },
-        error: function () {
-            toastr.error("Algo salió mal", "Error!");
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Aquí capturas y manejas el error
+            console.log("Error en la solicitud AJAX:");
+            console.log("Estado de la solicitud: " + textStatus);
+            console.log("Error: " + errorThrown);
+            toastr.error("Algo salió mal", "Error!"); // Muestra un mensaje genérico de error
         }
     })
 });

@@ -39,31 +39,31 @@ class Usuario
 
     function ValidarUsuario($email, $pass)
     {
-        $query = "SELECT * from usuarios WHERE telefono = ? AND clave = ? LIMIT 1";
+        $query = "SELECT * from usuarios WHERE telefono = ?";
         // echo "octubre:".$query."*****".$email;
         $result = $this->cnx->prepare($query);
         $result->bindParam(1, $email);
-        $result->bindParam(2, $pass);
+   //     $result->bindParam(2, $pass);
         $result->execute();
         //$result->get_result();
         $fila = $result->fetchAll();
-
+/*
         if ($result) {
             return $fila;
         } else {
 
             return false;
         }
+*/
 
 
 
 
-
-        /*
+        
         $contra = "";
         foreach ($fila as $row) {
             //echo $row['nombre']."<br />\n";
-            $contra = $row['password'];
+            $contra = $row['clave'];
         }
         //echo $pass ."==". $contra;
         //echo $fila["password"];
@@ -74,7 +74,7 @@ class Usuario
         } else {
             // echo "no son iguales";
         }
-        */
+        
     }
 
 

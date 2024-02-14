@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require "../Modelo/Usuario.php";
+require "../../Modelo/Usuario.php";
 
 $us = new Usuario();
 
